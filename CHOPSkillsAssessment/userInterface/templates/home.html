@@ -1,5 +1,5 @@
+<!-- This is a Django Tag-->
 {% load static%}
-
 
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
 <!--[if gt IE 8]><! <html class="no-js"> <!--<![endif]-->
     <head>
         
-                <title>{% block title %}CHOP Skills Assessment - test commit{% endblock title %}</title>
+                <title>{% block title %}CHOP Skills Assessment{% endblock title %}</title>
         
                         
                         {% block styling %}
@@ -49,7 +49,7 @@
         {% block javascript %}
         <script src="{% static 'jquery-2.0.3.min.js' %}"></script>
         <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+      
         {% endblock javascript %}
     </body>
 </html>
