@@ -16,8 +16,12 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from userInterface.views import home
+from userInterface.views import aliquot
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name = 'home'),
+    url(r'^aliquot/', aliquot, name = 'aliquot')
+
 ]
