@@ -57,7 +57,9 @@ ROOT_URLCONF = 'CHOPSkillsAssessment.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['userInterface/templates'],
+        'DIRS': ['templates',
+                 'userInterface/templates',
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

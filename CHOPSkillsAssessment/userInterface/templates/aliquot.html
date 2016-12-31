@@ -1,53 +1,24 @@
-<!-- This is a Django Tag-->
-{% load static%}
+{% extends "base.html" %}
 
-
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-            </head>
-
-
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><! <html class="no-js"> <!--<![endif]-->
-    <head>
+         {% block title %} aliquot {% endblock title %}  
+         {% block navlistActive %} class="active"{% endblock navlistActive %}
+                
+      
+         {% block content %}
+        <div class="container-fluid"> 
         
-                <title>{% block title %} aliquot {% endblock title %}</title>
-        
-                        
-                        {% block styling %}
-                        
-                        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
-                            
-                            {% endblock styling %}
-                            
-                            </head>
-   
-    <body>
-        <nav class="navbar navbar-default">
-        </div>
-            <ul class="nav navbar-nav">
-                <li ><a href="{% url 'home' %}">Home</a></li>
-                <li class="active"><a href="{% url 'aliquot' %}"> Aliquot List </a></li>
-                <li><a href="#"> Search </a></li>
-                <li><a href="#"> Add </a></li>
-            </ul>
-        </div>
-        </nav>
-        
-        <div class="container-fluid">
+       
              <div class="jumbotron">
             
                 <h1>Aliquot List</h1>
                 <p>Here is a list of all available Aliquots</p>
                 <p>Select an aliquot to view and/or edit</p>
              </div>
-        </div>
-        <div class="list-group" >
+       </div> 
         
+        <!-- <div class="list-group" >  -->
+        
+      
     {% for aliquot in available_aliquots %}
         <a class="list-group-item" href="#">
            Aliquot ID: {{ aliquot.aliquot_id }}	 received on: {{aliquot.received_on }} 	sample_type: {{aliquot.sample_type}}
@@ -56,5 +27,7 @@
         <span class="list-group-item">No aliquots available.</span>
     {% endfor %}
 </div>
-        
+
+   {% endblock content %}     
     </body>
+    

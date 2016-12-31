@@ -1,43 +1,12 @@
 <!-- This is a Django Tag-->
-{% load static%}
+{% extends "base.html" %}
 
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-            </head>
+{% block title %}CHOP Skills Assessment{% endblock title %}
+{% block navHomeActive %} class="active"{% endblock navHomeActive %}        
+                  
 
-
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><! <html class="no-js"> <!--<![endif]-->
-    <head>
-        
-                <title>{% block title %}CHOP Skills Assessment{% endblock title %}</title>
-        
-                        
-                        {% block styling %}
-                        
-                        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
-                            
-                            {% endblock styling %}
-                            
-                            </head>
-   
-    <body>
-        <nav class="navbar navbar-default">
-        </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'aliquot' %}"> Aliquot List </a></li>
-                <li><a href="#"> Search </a></li>
-                <li><a href="#"> Add </a></li>
-            </ul>
-        </div>
-        </nav>
-        
+        {% block content %}
         <div class="container-fluid">
              <div class="jumbotron">
             
@@ -46,11 +15,7 @@
                 <p>To add tissue samples to the repository use the add tab.</p>
                             </div>
         </div>
+        {% endblock content %}
         
-        {% block javascript %}
-        <script src="{% static 'jquery-2.0.3.min.js' %}"></script>
-        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-      
-        {% endblock javascript %}
     </body>
-</html>
+
