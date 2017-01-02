@@ -17,11 +17,13 @@ from django.conf.urls import url
 from django.contrib import admin
 from userInterface.views import home
 from userInterface.views import aliquot
+from userInterface.views import aliquotAdd
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name = 'home'),
-    url(r'^aliquot/', aliquot, name = 'aliquot')
+    url(r'^aliquot/', aliquot, name = 'aliquot'),
+    url(r'^aliquotAdd/', aliquotAdd, name = 'aliquotAdd')
 
 ]

@@ -1,4 +1,4 @@
-<!-- This is a Django template Tag-->
+<!-- This is a Django template Tag to utilize files in the static app-->
 {% load static%}
 
 
@@ -26,7 +26,7 @@
                 <li {% block navHomeActive %} {% endblock navHomeActive %} ><a href="{% url 'home' %}">Home</a></li>
                 <li {% block navlistActive %} {% endblock navlistActive %}><a href="{% url 'aliquot' %}"> Aliquot List </a></li>
                 <li{% block navSearchActive %} {% endblock navSearchActive %}><a href="#"> Search </a></li>
-                <li {% block navAddActive %} {% endblock navAddActive %}><a href="#"> Add </a></li>
+                <li {% block navAddActive %} {% endblock navAddActive %}><a href="{% url 'aliquotAdd' %}"> Add </a></li>
             </ul>
         </div>
         </nav>

@@ -13,6 +13,8 @@ def aliquot(request):
                }
     return render(request, "aliquot.html", context)
 
+def aliquotAdd(request):
+    return render(request, "aliquotAdd.html")
 
 #def aliquotList(request):
  #   AliquotFormSet = formset_factory(AliquotForm)
