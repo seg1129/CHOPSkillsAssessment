@@ -5,5 +5,4 @@ from data.models import Aliquot
 class AliquotForm(ModelForm):
     class Meta:
         model = Aliquot
-        fields = '__all__'
-        #fields = ['aliquot_id', 'received_on', 'sample_type']
+        exclude = ['collected_on', 'sample_type_code', 'secondary_sample_code']
