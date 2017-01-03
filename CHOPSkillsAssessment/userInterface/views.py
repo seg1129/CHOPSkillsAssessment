@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from data.models import Aliquot
+from django.forms import modelformset_factory
+from django.shortcuts import redirect
 
+from data.models import Aliquot
+from .forms import AliquotForm
 
 
 def home(request):
@@ -13,21 +16,32 @@ def aliquot(request):
                }
     return render(request, "aliquot.html", context)
 
-def aliquotAdd(request):
-    return render(request, "aliquotAdd.html")
+def AliquotAddForm(request):
+    if request.method == 'POST':
+        form = AliquotForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = AliquotForm(request.POST)
+    return render(request, "aliquotAdd.html", {'form': form})
 
-#def aliquotList(request):
- #   AliquotFormSet = formset_factory(AliquotForm)
- #   return render(request, "aliquotList.html", {'formset': formset})
+    ######################Working List of Forms######################
+#def AliquotForm(request):
+    #AliquotFormSet = modelformset_factory(Aliquot, fields=('aliquot_id', 'received_on', 'sample_type'))
+    
+    #if request.method == 'POST':
+    #    formset = AliquotFormSet(request.POST, 
+                                # request.FILES
+                                #instance=post,
+    #    )
+    #    if formset.is_valid():
+    #        formset.save()
+            # do something.
+            
+    #else:
+    #    formset = AliquotFormSet()
+    #return render(request, 'aliquotAdd.html', {'formset': formset})
 
-#def aliquotList(request):
-#    AliquotFormSet = formset_factory(AliquotForm)
-#    if request.method == 'aliquotList':
-#        formset = AliquotFormSet(request.aliquotList, request.FILES)
-#        if formset.is_valid():
-            # do something with the formset.cleaned_data
-#            pass
-#    else:
-#        formset = AliquotFormSet()
-#    return render(request, 'aliquotList.html', {'formset': formset})
+
 

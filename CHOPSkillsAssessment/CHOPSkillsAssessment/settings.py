@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'data',
     'static',
-    'userInterface'
+    'userInterface',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     '/CHOPSkillsAssessment/static/',
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
